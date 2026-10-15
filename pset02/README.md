@@ -1,0 +1,1 @@
+In this homework assignment we took the information that we learned in labs 5-7 and created dictionaries to let users create their own madlibs
