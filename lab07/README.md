@@ -1,0 +1,1 @@
+In this lab, we came up with ways to compute the amount of money we’ll have at the end of an investment cycle, and determine how many months it will take to reach a desired goal. 

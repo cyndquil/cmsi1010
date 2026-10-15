@@ -1,0 +1,1 @@
+In this lab learned about recursion and created a formula to calculate the recursion of growing towers and how tall our tower will be.
