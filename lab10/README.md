@@ -1,0 +1,1 @@
+In this lab we learned about data structures, classes, types and used them to create a family tree
