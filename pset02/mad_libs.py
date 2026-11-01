@@ -41,6 +41,27 @@
 #
 #   2. The possible "yes" answers should be stored in a set.
 # ----------------------------------------------------------------------
+
+
+
+#print(templates[0]["text"]) 
+# #this is taking our first[0] listed named template and printing 
+#the text contained in it by taking its first dictionary. 
+# [text] is the key that we are using to get the value in the dictionary.
+
+#story = templates[0]["text"] #this is defining our variable story to hold the first template text
+
+#adjective = input("Enter an adjective:")
+# we ared defining our variable adjective to hold the input from a user. 
+#the text in our string is what will appear when a user is prompted.
+
+#story = story.replace(":adjective", adjective) 
+#this is replacing the :adjective in the story variable with the user input stored in the adjective bariable
+
+#print(story)
+
+import random
+
 templates = [
     {
         "text": "The :adjective ghost is behind you!",
@@ -51,7 +72,7 @@ templates = [
         "author": "Professor Toal"
     },
     {
-        "text": "Look! There is a :adverb :adjecive :verb :noun in the :place.",
+        "text": "Look! There is a :adverb :adjective :verb :noun in the :place.",
         "author": "whole class"
                 },
     {
@@ -61,5 +82,78 @@ templates = [
     {
         "text": "The :adjective",
         "author": "Professor Toal"
-    }
+    },
+
+    {
+        "text": "The :color pumpkin :action through the :adjective house.",
+        "author": "Cynthia Chavez"
+    },
+
+    {
+        "text": "The :color :animal :action over down the :adjective lit street.",
+        "author": "Cynthia Chavez"
+    },
+    {
+        "text": "Five :adjective children :action  on halloween night.",
+        "author": "Cynthia Chavez"
+    },
+    {
+        "text": "The :color haunted house was actually a :adjective :object.",
+        "author": "Cynthia Chavez"
+    
+    },
+    {
+        "text": ":color bats flew into the :adjective :object,",
+        "author": "Cynthia Chavez"
+
+    },
+    {
+        "text": "Learning python can be quite :adjective",
+        "author": "Cynthia Chavez"
+    },    
+    
 ]
+
+yes_answers = {"yes", "y", "yeah", "yep", "sí", "si", "oui", "yuh"}
+
+while True:
+    template = random.choice(templates)
+    story = template["text"]
+    completed_words = []
+
+    for word in story.split():
+        if word.startswith(":"):
+            placeholder = word.rstrip(".,!?;:")
+            description = placeholder[1:]
+
+            answer = input("Enter a word for " + description + ": ").strip()
+
+            while len(answer) < 1 or len(answer) > 30:
+                print("Please enter between 1 and 30 characters.")
+                answer = input(
+                    "Enter a word for " + description + ": "
+                ).strip()
+
+            word = word.replace(placeholder, answer, 1)
+
+        completed_words.append(word)
+
+    completed_story = " ".join(completed_words)
+
+    print()
+    print(completed_story)
+    print()
+    print(template["author"])
+    print()
+    print()
+
+    response = input(
+        "Would you like to play again? Enter yes, no, or exit: "
+    ).strip().lower()
+
+    if response == "exit":
+        print("Thanks for playing!")
+        break
+    elif response not in yes_answers:
+        print("Thanks for playing!")
+        break
